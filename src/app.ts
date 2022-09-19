@@ -17,14 +17,20 @@ const options = {
         version: barflyConfig.version,
       },
     },
-    apis: ['./routes/*.ts'],
-  };
+    apis: ['./src/routes/*'],
+};
+
+// swagger ui options
+const swaggerUiOptions = {
+  explorer: true,
+}
+
 const swaggerSpec = swaggerJsdoc(options);
 
 
 app.use(json());
 app.use('/api/tables', tablesRoutes);
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, swaggerUiOptions));
 
 app.listen(serverConfig.port, () => {
   console.log(`Server is running on port ${serverConfig.port}`);

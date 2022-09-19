@@ -7,7 +7,7 @@ const router = Router();
 
 /**
  * @openapi
- * /:
+ * /api/tables:
  *   get:
  *     description: Get all tables
  *     responses:
@@ -18,7 +18,7 @@ router.get("/", tablesController.getTables);
 
 /**
  * @openapi
- * /:
+ * /api/tables:
  *   post:
  *     description: Create a new table
  *     responses:
